@@ -32,7 +32,7 @@ class NodePingClient {
     public $config = array(
         'token'     =>false,
         'customerid'=>false,
-        'apiurl'    =>"https://dev.nodeping.com/api",
+        'apiurl'    =>"https://api.nodeping.com/api",
         'apiversion'=>'1'
     );
 
