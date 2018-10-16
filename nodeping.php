@@ -138,6 +138,9 @@ class NodePingRequest{
             //$dataarray = array_map('NodePingRequest::jsonize', $dataarray);
             $query = '?'.http_build_query($queryarray);
             //error_log('Query is: '.print_r($query, true));
+        }elseif($this->config['customerid']){
+            $queryarray = array('customerid'=>$this->config['customerid']);
+            $query = '?'.http_build_query($queryarray);
         }
         $url = $this->config['apiurl'].'/'.$this->config['apiversion'].'/'.$this->resource.$query;
         //error_log('URL is: '.print_r($url, true));
