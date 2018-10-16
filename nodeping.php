@@ -130,7 +130,11 @@ class NodePingRequest{
         $query = '';
         if($dataarray && is_array($dataarray)){
             $jsondata = json_encode($dataarray);
-            $queryarray = array('json'=>$jsondata);
+            if($this->config['customerid']){
+                $queryarray = array('json'=>$jsondata, 'customerid'=>$this->config['customerid']);
+            }else{
+                $queryarray = array('json'=>$jsondata);
+            }
             //$dataarray = array_map('NodePingRequest::jsonize', $dataarray);
             $query = '?'.http_build_query($queryarray);
             //error_log('Query is: '.print_r($query, true));
