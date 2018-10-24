@@ -115,6 +115,15 @@ class NodePingResource {
         }
         return array('error', 'current only works on results');
     }
+
+    public function uptime($dataarray=false){
+        if($this->resource == 'results'){
+            $httpclient = new NodePingRequest($this->config, $this->resource);
+            $dataarray['action'] = 'UPTIME';
+            return $httpclient->call('GET',$dataarray);
+        }
+        return array('error', 'uptime only works on results');
+    }
 }
 
 class NodePingRequest{
